@@ -28,8 +28,9 @@ function handleSubmit(event) {
         })
             .then(res => res.json())
             .then(function (res) {
+                console.log('res ======+> ', res)
                 //console.log(res)
-                document.getElementById('results').innerHTML = res.response;
+                document.getElementById('results').innerHTML = res.irony + " " + res.score_tag + " " + res.confidence + " " + res.subjectivity + " " + res.agreement;
             })
     } else {
         alert ('This is not a valid URL')
