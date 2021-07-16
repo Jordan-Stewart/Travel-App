@@ -35,6 +35,6 @@ function handleSubmit(event) {
         alert ('This is not a valid URL')
     };
 }
-}
+
 
 export { handleSubmit }
