@@ -18,9 +18,10 @@ app.use(bodyParser.json())
 
 console.log(__dirname)
 
-var textapi = new MeaningCloud({
-   application_key: process.env.API_KEY
-});
+// designates what port the app will listen to for incoming requests - instructed by mentor: https://knowledge.udacity.com/questions/642781
+app.listen(8081, function () {
+    console.log('Example app listening on port 8081')
+})
 
 app.get('/clientdataUrl', function (req, res) {
     // res.sendFile('dist/index.html')
@@ -30,7 +31,7 @@ app.get('/clientdataUrl', function (req, res) {
 //assistance provided for this function from mentor - https://knowledge.udacity.com/questions/641239
 app.post("/clientdataUrl", async function (req, res) {
     console.log('req====+>', req.body)
-    const result = await fetch("https://api.meaningcloud.com/sentiment-2.1?key=" + process.env.API_KEY + "&url=" + req.body.sentence + "&lang=en")
+    const result = await fetch("https://api.meaningcloud.com/sentiment-2.1?key=" + process.env.API_KEY + "&url=" + req.body.formText + "&lang=en")
     try {
         console.log(result)
         const response = await result.json();
