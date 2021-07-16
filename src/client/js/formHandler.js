@@ -14,7 +14,7 @@ function handleSubmit(event) {
     //const fullApi = `${baseUrl}key=${apiKey}&url=${formText}&lang=en`
 
     if (Client.checkURL(formText)) {
-        fetch('http://localhost:8081/', {
+        fetch('http://localhost:8081/clientdataUrl', {
             method: 'POST',
             credentials: 'same-origin',
             body: JSON.stringify({ content: formText }),
