@@ -17,7 +17,6 @@ function handleSubmit(event) {
         fetch('http://localhost:8081/clientdataUrl', {
             method: 'POST',
             credentials: 'same-origin',
-            body: JSON.stringify({ content: formText }),
             redirect: "follow",
             mode: "cors",
             cache: "no-cache",
