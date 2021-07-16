@@ -22,12 +22,12 @@ var textapi = new MeaningCloud({
    application_key: process.env.API_KEY
 });
 
-app.get('/', function (req, res) {
+app.get('/clientdataUrl', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile('dist/index.html')
 })
 
-app.post("/", async function (req, res) {
+app.post("/clientdataUrl", async function (req, res) {
     console.log('req====+>', req.body)
     const result = await fetch("https://api.meaningcloud.com/sentiment-2.1?key=" + process.env.API_KEY + "&url=" + req.body.sentence + "&lang=en")
     try {
