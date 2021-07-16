@@ -30,7 +30,7 @@ function handleSubmit(event) {
             .then(res => res.json())
             .then(function (res) {
                 //console.log(res)
-                document.getElementById('results').innerHTML = 'Score: ' + res.score_tag + 'Agreement: ' + res.agreement + 'Confidence: ' + res.confidence + 'Irony: ' + res.irony;
+                document.getElementById('results').innerHTML = res.response;
             })
     } else {
         alert ('This is not a valid URL')
