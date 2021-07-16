@@ -27,6 +27,7 @@ app.get('/clientdataUrl', function (req, res) {
     res.sendFile('dist/index.html')
 })
 
+//assistance provided for this function from mentor - https://knowledge.udacity.com/questions/641239
 app.post("/clientdataUrl", async function (req, res) {
     console.log('req====+>', req.body)
     const result = await fetch("https://api.meaningcloud.com/sentiment-2.1?key=" + process.env.API_KEY + "&url=" + req.body.sentence + "&lang=en")
