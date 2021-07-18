@@ -4,3 +4,5 @@ To use the website, simply paste in a website URL where the placeholder text say
 
 References to any external sources are referenced within the code itself (in code-comments).
 (got some assistance on service workers from a mentor via this question: https://knowledge.udacity.com/questions/642967)
+
+As a general note, a lot of plugins can become incomaptible with updates, so if any errors are being thrown as a result of a speicifc plugin, it is best to run the npm i --legacy-peer-deps command in your console.
