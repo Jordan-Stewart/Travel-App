@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Jordan Stewart's Capstone Project</title>
+        <!--link to google style-sheet-->
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -41,15 +43,16 @@
               </div>
                 <!-- INPUT -->
               <div class ="holder zip">
-                <label for="zip">Enter City here</label>
+                <label for="zip">Where do you intend to travel</label>
                 <input type="text" id="zip" placeholder="enter city here">
               </div>
               <div class ="holder feel">
-                <label for="feelings">How are you feeling today?</label>
-                <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+                <label for="feelings">When do you intend to travel</label>
+                <!--<textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>-->
+                <input type="date" id="leaveDate" placeholder="enter date dd/mm/yyyy">
               </div>
               <div class ="button area">
-                <button id="generate" type = "submit"> Generate </button>
+                <button id="generate" type = "submit"> Submit </button>
               </div>
             
                 <!-- OUTPUT -->
