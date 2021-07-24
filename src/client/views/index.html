@@ -18,7 +18,7 @@
                   <li><div class="active">Book a trip</div></li>
                   <li>About</li>
                   <li class="right_align">Contact</li>
-                </ul> 
+                </ul>
             </div>
         </header>
         <!-- SLIDESHOW -->
@@ -42,40 +42,43 @@
         </ul>
         <div id = "app">
               <div class ="holder headline">
-                <h1>Jordan Stewart's Weather Journal App</h1>
+                <h1>Jordan Stewart's Capstone Project</h1>
               </div>
                 <!-- INPUT -->
-              <div class ="holder zip">
+              <div class ="destination">
                 <label for="zip">Where do you intend to travel</label>
-                <input type="text" id="zip" placeholder="enter city here">
+                <input type="text" id="destination" placeholder="enter city here">
               </div>
-              <div class ="holder feel">
-                <label for="feelings">When do you intend to travel</label>
+              <div class ="departure">
+                <label for="departure">When do you intend to travel</label>
                 <!--<textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>-->
-                <input type="date" id="leaveDate" placeholder="enter date dd/mm/yyyy">
+                <input type="date" id="date" placeholder="enter date dd/mm/yyyy">
+              </div>
+              <!-- figure out how to implement countdown -->
+              <div id = "countdown">
               </div>
               <div class ="button area">
                 <button id="generate" type = "submit"> Submit </button>
               </div>
-            
+
                 <!-- OUTPUT -->
               <div class ="holder entry">
-                <div class = "title">Most Recent Entry</div>
+                <div class = "title">Your trip details</div>
                 <div id = "entryHolder">
                     <div id = "date"></div>
-                    <div id = "temp"></div>
-                    <div id = "content"></div>
+                    <div id = "weather"></div>
+                    <div id = "image"></div>
                 </div>
               </div>
           </div>
-        
+
         <!-- FOOTER -->
         <footer>
              <ul class="footer_menu">
               <li>Contact</li>
               <li>Privacy policy</li>
               <li>Terms of service</li>
-            </ul> 
+            </ul>
             <li>Created by Jordan Stewart</p>
             <!-- Github repo link -->
             <p>Github repo: <a href="https://github.com/Jordan-Stewart/Travel-App/" target="_blank">https://github.com/Jordan-Stewart/Travel-App/</a></p>
