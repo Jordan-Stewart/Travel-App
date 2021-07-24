@@ -25,15 +25,15 @@ const userView = async()=>{
               const departure = document.getElementById('date').value;
 
               // testing displaying geo API
-              const geoApiRes = await retrieveDestination(destination);
+              const geoAPI = await retrieveDestination(destination);
 
-              userData.lat = geoApiRes.lat;
-              console.log(travelData.lat);
+              userData.lat = geoAPI.lat;
+              console.log(userData.lat);
 
-              userData.long = geoApiRes.long;
-              console.log(travelData.long);
+              userData.long = geoAPI.long;
+              console.log(userData.long);
 
-              userData.ctry = geoApiRes.ctry;
+              userData.ctry = geoAPI.ctry;
             }
           //catch any potential errors that arise and output results in console
           catch(err){
@@ -50,4 +50,4 @@ document.getElementById('generate').addEventListener("click", performAction);
 console.log(checkURL);
 
 //alert("I EXIST")
-//onsole.log("CHANGE!!");
+c//onsole.log("CHANGE!!");
