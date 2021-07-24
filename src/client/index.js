@@ -50,4 +50,4 @@ document.getElementById('generate').addEventListener("click", performAction);
 console.log(checkURL);
 
 //alert("I EXIST")
-c//onsole.log("CHANGE!!");
+//onsole.log("CHANGE!!");
