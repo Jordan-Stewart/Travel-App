@@ -20,12 +20,6 @@ console.log('Geonames username is ${genonames_id}, Weatherbit API key is ${weath
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-// designates what port the app will listen to for incoming requests - instructed by mentor: https://knowledge.udacity.com/questions/642781
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081')
-})
-
 app.get('/clientdataUrl', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile('dist/index.html')
@@ -44,3 +38,6 @@ app.get('/clientdataUrl', function (req, res) {
 //      console.log("error", error);
 //    }
 //})
+
+
+module.exports = app;
