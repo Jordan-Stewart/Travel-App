@@ -3,8 +3,8 @@ const weatherbit_API = 'https://api.weatherbit.io/v2.0/current?';
 const weatherbit_id = process.env.API_KEY_WEATHERBIT;
 
 const retrieveWeather = async (destination, weatherbit_API, weatherbit_id) => {
- 	const response = await fetch(weatherbit_API+'city='+destination+'&key='+weatherbit_id)
-  try {
+        try {
+ 	    const response = await fetch(weatherbit_API+'city='+destination+'&key='+weatherbit_id)
       .then(res=>res.json())
      	.then(function(res) {
      		const data = {temp: res.data["0"].app_temp};
