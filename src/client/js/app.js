@@ -31,11 +31,6 @@ function generateTrip(e){
     })
       .then( () => userView());
     }
-
-  //validation function for zipCode as per mentor instructions -- https://knowledge.udacity.com/questions/629283
-  //function validateZipCode(elementValue){
-    //var zipCodePattern = /^(0[289][0-9]{2})|([123456789][0-9]{3})$/;
-    //return zipCodePattern.test(elementValue);
   }
 
   let userData = {};
