@@ -1,8 +1,8 @@
 //Import other function exports
-import { countdown } from "../countdown";
-import { retrieveDestination } from "../retrieveDestination";
-import { retrieveImage } from "../retrieveImage";
-import { retrieveWeather } from "../retrieveWeather";
+import { countdown } from "./countdown";
+import { retrieveDestination } from "./retrieveDestination";
+import { retrieveImage } from "./retrieveImage";
+import { retrieveWeather } from "./retrieveWeather";
 
 //had these in wrong order
 let date = new Date();
