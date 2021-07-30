@@ -7,22 +7,18 @@ import { retrieveWeather } from "./retrieveWeather";
 //had these in wrong order
 let date = new Date();
 
-//when generate button is clicked, run generateWeather function
-//document.getElementById('generate').addEventListener('click', generateWeather);
-
 function generateTrip(e){
     e.preventDefault();
-    // Get input data to include in the POST
-    //can't use let, need to use const (not for going forward)
+
     const date = document.getElementById('date').value;
-    //Get weather data for designated postcode
-    //As per mentor instructions - "method retrieveWeather should have parameter sequence as `apiURL`, `postCode` and `apiKey`"
 
     //make calls to functions imported
     retrieveDestination (destination, geonames_API, geonames_ID);
     retrieveImage (destination, pixabay_API, pixabay_ID);;
     retrieveWeather(apiURL, postCode, apiKey);
 
+    //call countdown function for days remaining
+    countdown (date);
 
     .then(function(data){
       console.log(data);
