@@ -2,9 +2,9 @@
 
 //references this resource on building a countdown - https://www.educative.io/edpresso/how-to-create-a-countdown-timer-using-javascript
 function countdown (date) {
-  const date = new Date();
-  const now = Date.now(date);
-  var days = date - now;
+  const aDate = new Date();
+  const currentDate = Date.now(aDate);
+  var days = currentDate - now;
 
   var timeleft = Math.floor(days / (1000 * 60 * 60 * 24));
 }
