@@ -7,7 +7,8 @@ const retrieveWeather = async (destination, weatherbit_API, weatherbit_id) => {
  	    const response = await fetch(weatherbit_API+'city='+destination+'&key='+weatherbit_id)
       .then(res=>res.json())
      	.then(function(res) {
-     		const data = {temp: res.data["0"].app_temp};
+                //testing to see if this works for icon
+     		let data = {temp: res.data[0].app_temp, icon: res.data[0].icon};
      		console.log(data);
      		return data;
      	})
@@ -25,9 +26,11 @@ const retrieveWeather = async (destination, weatherbit_API, weatherbit_id) => {
       const result = await fetch(weatherbit_API, weather)
       try {
            res.send({
-             temp: weatherData.temp,
+                   //testing to see if working
+             temp: addWeather.temp,
+             icon: addWeather.icon,
            });
-           console.log(location);
+
       } catch (error) {
           console.log("error", error);
       }
