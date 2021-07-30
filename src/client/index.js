@@ -1,8 +1,8 @@
-import { countdown } from "../countdown";
-import { retrieveDestination } from "../retrieveDestination";
-import { retrieveImage } from "../retrieveImage";
-import { retrieveWeather } from "../retrieveWeather";
-import { generateTrip } from '../js/app'
+import { countdown } from "./js/countdown";
+import { retrieveDestination } from "./js/retrieveDestination";
+import { retrieveImage } from "./js/retrieveImage";
+import { retrieveWeather } from "./js/retrieveWeather";
+import { generateTrip } from './js/app'
 
 import './styles/main.scss'
 import './styles/base.scss'
