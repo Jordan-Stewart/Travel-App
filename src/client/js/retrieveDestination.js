@@ -4,8 +4,8 @@ const geonames_ID = process.env.USERNAME;
 
 //change from function to async
 const retrieveDestination = async (destination, geonames_API, geonames_ID) => {
-    const response = await fetch(geonames_API+destination+geonames_ID)
     try {
+      const response = await fetch(geonames_API+destination+geonames_ID)
       .then(res=>res.json())
       .then(function(res) {
       const lattitude = res.postalCodes[0].lat;
@@ -15,9 +15,8 @@ const retrieveDestination = async (destination, geonames_API, geonames_ID) => {
       const data = {place: res.postalCodes[0].placeName};
       return data;
         })
-      }
-    //catch any potential errors that arise and output results in console
-    catch(error) {
+    } catch (error) {
+      //catch any potential errors that arise and output results in console
       console.log("error", error);
     }
     return response;
