@@ -20,6 +20,8 @@ const retrieveWeather = async (destination, weatherbit_API, weatherbit_id) => {
     return response;
   }
 
+//assistance provided for this function from mentor - https://knowledge.udacity.com/questions/649604
+/*
   app.post("/addWeather", async function (req, res) {
       console.log('req====+>', req.body)
       const weather = req.body.place;
@@ -35,5 +37,6 @@ const retrieveWeather = async (destination, weatherbit_API, weatherbit_id) => {
           console.log("error", error);
       }
   })
+*/
 
 export {retrieveWeather}
