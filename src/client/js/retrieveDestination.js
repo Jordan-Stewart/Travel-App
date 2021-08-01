@@ -23,8 +23,8 @@ const retrieveDestination = async (destination, geonames_API, geonames_ID) => {
 };
 
 
-//assistance provided for this function from mentor - https://knowledge.udacity.com/questions/641239
-app.post("/addDestination", async function (req, res) {
+//assistance provided for this function from mentor - https://knowledge.udacity.com/questions/649604
+/*app.post("/addDestination", async function (req, res) {
     console.log('req====+>', req.body)
     const result = await fetch(geonames_API+destination+geonames_ID)
     try {
@@ -39,6 +39,6 @@ app.post("/addDestination", async function (req, res) {
         console.log("error", error);
     }
 })
-
+*/
 
 export {retrieveDestination}
