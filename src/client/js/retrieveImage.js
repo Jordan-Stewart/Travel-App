@@ -20,8 +20,8 @@ const getImage = async (destination, pixabay_API, pixabay_ID) => {
     return response;
   }
 
- //assistance provided for this function from mentor - https://knowledge.udacity.com/questions/641239
- app.post("/addImage", async function (req, res) {
+ //assistance provided for this function from mentor - https://knowledge.udacity.com/questions/649604
+/* app.post("/addImage", async function (req, res) {
      console.log('req====+>', req.body)
      const result = await fetch(geonames_API+destination+geonames_ID)
      try {
@@ -35,5 +35,5 @@ const getImage = async (destination, pixabay_API, pixabay_ID) => {
          console.log("error", error);
      }
  })
-
+*/
  export {retrieveImage}
