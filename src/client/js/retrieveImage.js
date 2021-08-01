@@ -3,7 +3,7 @@ const pixabay_API = 'https://pixabay.com/api/?key=';
 const pixabay_ID = process.env.API_KEY_PIXABAY;
 
 //use an async function
-const getImage = async (destination, pixabay_API, pixabay_ID) => {
+const retrieveImage = async (destination, pixabay_API, pixabay_ID) => {
  try {	
       const response = await fetch(pixabay_API+pixabay_ID+'&q='+place+'&category=places&image_type=photo')
       .then(res=>res.json())
