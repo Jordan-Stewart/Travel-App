@@ -7,33 +7,19 @@ import { retrieveWeather } from "./retrieveWeather";
 //had these in wrong order
 let date = new Date();
 
+//fix generateTrip function as per mentor advice -- https://knowledge.udacity.com/questions/649604
 function generateTrip(e){
     e.preventDefault();
-
     const date = document.getElementById('date').value;
-
     //make calls to functions imported
     retrieveDestination (destination, geonames_API, geonames_ID);
     retrieveImage (destination, pixabay_API, pixabay_ID);;
     retrieveWeather(apiURL, postCode, apiKey);
-
     //call countdown function for days remaining
     countdown (date);
+}
 
-    .then(function(data){
-      console.log(data);
-
-        document.getElementById('date').innerHTML = "Your trip is on: "+ date;
-        const location = document.getElementById('destination').value;
-      	await retrieveDestination(content);
-      	await retrieveImage(content);
-      	await retrieveWeather(content);
-    })
-      .then( () => userView());
-    }
-  }
-
-  let userData = {};
+let userData = {};
 
 //post data
 const userView = async()=>{
