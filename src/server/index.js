@@ -14,7 +14,7 @@ app.use(express.static('dist'))
 app.use(cors())
 app.use(bodyParser.json())
 
-console.log('Geonames username is ${genonames_id}, Weatherbit API key is ${weatherbit_id}, and Pixabay API key is ${pixabay_id}`);
+//console.log('Geonames username is ${genonames_id}, Weatherbit API key is ${weatherbit_id}, and Pixabay API key is ${pixabay_id}`);
 
 // MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
