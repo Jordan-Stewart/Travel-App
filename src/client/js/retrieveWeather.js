@@ -7,8 +7,12 @@ const retrieveWeather = async (destination, weatherbit_API, weatherbit_id) => {
  	    const response = await fetch(weatherbit_API+'city='+destination+'&key='+weatherbit_id)
       .then(res=>res.json())
      	.then(function(res) {
-                //testing to see if this works for icon
-     		let data = {temp: res.data[0].app_temp, icon: res.data[0].icon};
+                //testing to see if this works for icon via support provided here https://knowledge.udacity.com/questions/649596
+                const icon_code = [from API response at res.weather.icon]
+                const icon = document.getElementById("weather_icon")
+                icon.setAttribute("src", `https://www.weatherbit.io/static/img/icons/${icon_code}.png` );
+                
+     		let data = {temp: res.data[0].app_temp, icon:};
      		console.log(data);
      		return data;
      	})
