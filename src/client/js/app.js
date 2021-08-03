@@ -17,6 +17,9 @@ function generateTrip(e){
     retrieveWeather(apiURL, postCode, apiKey);
     //call countdown function for days remaining
     countdown (date);
+    
+    //call pass data onto UserView function to display results
+    .then( () => userView());
 }
 
 let userData = {};
@@ -33,13 +36,12 @@ const userView = async()=>{
 
               // testing displaying geo API
               const geoAPI = await retrieveDestination(destination);
-
+                 console.log(userData.lat);
+                 console.log(userData.long);
+                 console.log(userData.ctry);
+              
               userData.lat = geoAPI.lat;
-              console.log(userData.lat);
-
               userData.long = geoAPI.long;
-              console.log(userData.long);
-
               userData.ctry = geoAPI.ctry;
             }
           //catch any potential errors that arise and output results in console
