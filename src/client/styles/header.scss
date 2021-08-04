@@ -31,12 +31,7 @@ $width-button: 150px;
   }
 }
 
-header {
-  background-color: $color-primary;
-}
-
 nav {
-  margin: 30px;
   background-color: $color-primary;
   @include clearfix;
 }
