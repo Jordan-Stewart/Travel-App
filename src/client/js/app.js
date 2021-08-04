@@ -28,21 +28,25 @@ const userView = async()=>{
           try{
               const projectData = await entries.json();
               //define variables
-              const destination = document.getElementById('destination').value;
-              const departure = document.getElementById('date').value;
+              const userDestination = document.getElementById('destination').value;
+              const userDeparture = document.getElementById('date').value;
 
               // testing displaying geo API
               const geoAPI = await retrieveDestination(destination);
                  console.log(userData.lat);
                  console.log(userData.long);
-                 console.log(userData.ctry);
               
               userData.lat = geoAPI.lat;
               userData.long = geoAPI.long;
-              userData.ctry = geoAPI.ctry;
               
-              //call countdown function for days remaining
-              //countdown (date);
+              
+              
+              //icon: `https://www.weatherbit.io/static/img/icons/${forecast.weather.icon}.png`,
+              //date: forecast.datetime,
+              //min_temp: forecast.min_temp,
+              //max_temp: forecast.max_temp
+              
+              
             }
           //catch any potential errors that arise and output results in console
           catch(err){
