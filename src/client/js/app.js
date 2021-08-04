@@ -1,16 +1,13 @@
 //Import other function exports
-import { countdown } from "./countdown";
 import { retrieveDestination } from "./retrieveDestination";
 import { retrieveImage } from "./retrieveImage";
 import { retrieveWeather } from "./retrieveWeather";
 
-//had these in wrong order
-let date = new Date();
 
 //fix generateTrip function as per mentor advice -- https://knowledge.udacity.com/questions/649604
 function generateTrip(e){
     e.preventDefault();
-    const date = document.getElementById('date').value;
+
     //make calls to functions imported
     retrieveDestination (destination, geonames_API, geonames_ID);
     retrieveImage (destination, pixabay_API, pixabay_ID);
@@ -39,8 +36,22 @@ const userView = async()=>{
               userData.lat = geoAPI.lat;
               userData.long = geoAPI.long;
               
+              //calculation for time remaining until trip
+              var setDate = document.getElementById('date').value;
+              //getting todays date
+              var today = new Date();
+              //sourced from https://tecadmin.net/get-current-date-time-javascript/
+              var todaysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+              //the following was sourced from https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
+              // To calculate the time difference of two dates
+              var Difference_In_Time = setDate.getTime() - todaysDate.getTime();
+  
+              // To calculate the no. of days between two dates
+              var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
               
-              
+              //display results of calculation
+              document.querySelector('#date').innerHTML = "You have " + projectData.date + " days remaining until your trip!";
               //icon: `https://www.weatherbit.io/static/img/icons/${forecast.weather.icon}.png`,
               //date: forecast.datetime,
               //min_temp: forecast.min_temp,
