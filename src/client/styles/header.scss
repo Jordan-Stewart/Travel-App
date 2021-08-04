@@ -1,8 +1,6 @@
 //sourced some-what from: https://codepen.io/ajax27/pen/mZLeQm
 
 $font-style: Calibri;
-$background-color: #b06dff;
-$font-color: #f5f5f5;
 $color-primary: #fcffba;
 $color-secondary: #f085ad;
 $color-tertiary: #b83b5e;
@@ -13,9 +11,6 @@ $color-text-light: #eee;
   margin: 0;
   padding: 0;
 }
-
-
-$width-button: 150px;
 
 @mixin style-link-text($col) {
   text-decoration: none;
@@ -39,17 +34,17 @@ nav {
 .navigation {
   list-style: none;
   float: left;
-  
+
   li {
     display: inline-block;
     padding: 20px;
     margin-left: 6px;
     text-align: center;
-    
+
     &:first-child {
       margin-left: 0px;
     }
-    
+
     a:link {
       @include style-link-text($color-text-dark);
       font-weight: 600;
