@@ -11,7 +11,7 @@
 }
 
 /* Nested grid for main application */
-#results {
+.tile {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
