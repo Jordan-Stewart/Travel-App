@@ -1,6 +1,3 @@
-//require other server js files
-const server = require("./server");
-
 const path = require('path')
 const express = require('express')
 const cors = require('cors')
@@ -42,4 +39,9 @@ app.get('/clientdataUrl', function (req, res) {
 //})
 
 
-module.exports = app;
+// DECLARING THE PORT
+const port = 8081;
+const server = app.listen(port, () => {
+    console.log(`running on localhost: ${port}`);
+});
+module.exports = app
