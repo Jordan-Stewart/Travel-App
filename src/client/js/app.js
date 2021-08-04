@@ -13,13 +13,10 @@ function generateTrip(e){
     const date = document.getElementById('date').value;
     //make calls to functions imported
     retrieveDestination (destination, geonames_API, geonames_ID);
-    retrieveImage (destination, pixabay_API, pixabay_ID);;
-    retrieveWeather(apiURL, postCode, apiKey);
-    //call countdown function for days remaining
-    countdown (date);
-    
-    //call pass data onto UserView function to display results
-    .then( () => userView());
+    retrieveImage (destination, pixabay_API, pixabay_ID);
+    //updated call to userview as per mentor instructions -- https://knowledge.udacity.com/questions/657944
+    retrieveWeather(apiURL, postCode, apiKey).then( () => userView());
+
 }
 
 let userData = {};
@@ -43,6 +40,9 @@ const userView = async()=>{
               userData.lat = geoAPI.lat;
               userData.long = geoAPI.long;
               userData.ctry = geoAPI.ctry;
+              
+              //call countdown function for days remaining
+              //countdown (date);
             }
           //catch any potential errors that arise and output results in console
           catch(err){
