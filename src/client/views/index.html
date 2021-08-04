@@ -7,74 +7,75 @@
         <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <!-- Header -->
-        <header>
-            <!-- Navigation -->
-            <nav>
-                     <ul class="navigation">
-                      <li><a href="#">Home</a></li>
-                      <li class="active"><a href="#">Book a trip</a></div></li>
-                      <li><a href="#">Services</a></li>
-                     </ul>
-                     <div class="buttons">
-                       <a class="btn-main" href="#">Sign Up</a>
-                       <a class="btn-hot" href="#">Contact</a>
-                     </div>
-            </nav>
-        </header>
-        <!-- Application -->
-        <div id = "app">
-              <div class ="holder headline">
-                <h1>Jordan Stewart's Capstone Project</h1>
-              </div>
-                <!-- INPUT -->
-              <div class ="destination">
-                <label for="zip">Where do you intend to travel</label>
-                <input type="text" id="destination" placeholder="enter city here">
-              </div>
-              <div class ="departure">
-                <label for="departure">When do you intend to travel</label>
-                <!--<textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>-->
-                <input type="date" id="date" placeholder="enter date dd/mm/yyyy">
-              </div>
-              <!-- figure out how to implement countdown -->
-              <div id = "countdown">
-              </div>
-              <div class ="button area">
-                <button id="generate" type = "submit"> Submit </button>
-              </div>
+        <div class="home-container">
+            <!-- Header -->
+            <header>
+                <!-- Navigation -->
+                <nav>
+                         <ul class="navigation">
+                          <li><a href="#">Home</a></li>
+                          <li class="active"><a href="#">Book a trip</a></div></li>
+                          <li><a href="#">Services</a></li>
+                         </ul>
+                         <div class="buttons">
+                           <a class="btn-main" href="#">Sign Up</a>
+                           <a class="btn-hot" href="#">Contact</a>
+                         </div>
+                </nav>
+            </header>
+            <!-- main -->
+            <main>
+                <h1>Jordan Stewart's Travel App</h1>
+                <p>Welcome to my final capstone project for my front-end web developer course. To test the functionality, simply enter in a desired travel destination and departure date and then click 'submit'</p>
+            </main>
+            <!-- Application -->
+            <div class = "app">
+                <div class = "results">
+                      <!-- INPUT -->
+                      <!-- enter desired destination field -->
+                      <div class ="destination">
+                        <label for="zip">Where do you intend to travel</label>
+                        <input type="text" id="destination" placeholder="enter city here">
+                      </div>
+                      <!-- entire desired departure date -->
+                      <div class ="departure">
+                        <label for="departure">When do you intend to travel</label>
+                        <!--<textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>-->
+                        <input type="date" id="date" placeholder="enter date dd/mm/yyyy">
+                      </div>
+                      <!-- submit button -->
+                      <div class ="button area">
+                        <button id="generate" type = "submit"> Submit </button>
+                      </div>
 
-                <!-- OUTPUT -->
-              <div class ="holder entry">
-                <div class = "title">Your trip details</div>
-                <div id = "entryHolder">
-                    <div id = "date"></div>
-                    <div id = "weather"></div>
-                    <!-- test for getting weather icon to display -- via support provided from mentor -- https://knowledge.udacity.com/questions/649596 -->
-                    <div id = "image"><img id="weather_icon" src="fallbackIconURL" alt="weaher icon"/></div>
+                        <!-- OUTPUT -->
+                      <div class ="holder entry">
+                        <div class = "title">Your trip details</div>
+                        <div id = "entryHolder">
+                            <div id = "date"></div>
+                            <div id = "weather"></div>
+                            <!-- test for getting weather icon to display -- via support provided from mentor -- https://knowledge.udacity.com/questions/649596 -->
+                            <div id = "image"><img id="weather_icon" src="fallbackIconURL" alt="weaher icon"/></div>
+                        </div>
+                      </div>
                 </div>
               </div>
-          </div>
 
-        <!-- FOOTER -->
-        <footer class="page__footer">
-             <ul class="footer_menu">
-              <li>Contact</li>
-              <li>Privacy policy</li>
-              <li>Terms of service</li>
-            </ul>
-            <li>Created by Jordan Stewart</p>
-            <!-- Github repo link -->
-            <p>Github repo: <a href="https://github.com/Jordan-Stewart/Travel-App/" target="_blank">https://github.com/Jordan-Stewart/Travel-App/</a></p>
-        </footer>
-        <script>
-         // Check that service workers are supported
-         //if ('serviceWorker' in navigator) {
-          //    Use the window load event to keep the page load performant
-          //   window.addEventListener('load', () => {
-          //       navigator.serviceWorker.register('/service-worker.js');
-           //  });
-         //} 
-        </script>
+            <!-- FOOTER -->
+            <footer class="page__footer">
+                <p>Created by Jordan Stewart</p>
+                <!-- Github repo link -->
+                <p>Github repo: <a href="https://github.com/Jordan-Stewart/Travel-App/" target="_blank">https://github.com/Jordan-Stewart/Travel-App/</a></p>
+            </footer>
+        </div>
     </body>
+            <script>
+             // Check that service workers are supported
+             //if ('serviceWorker' in navigator) {
+              //    Use the window load event to keep the page load performant
+              //   window.addEventListener('load', () => {
+              //       navigator.serviceWorker.register('/service-worker.js');
+               //  });
+             //} 
+            </script>
 </html>
