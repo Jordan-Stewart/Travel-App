@@ -1,8 +1,8 @@
 $font-style: Calibri;
-$background-color: #b06dff;
+$background-color: #1a181c;
 $font-color: #f5f5f5;
 
-.footer {
+.page__footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -10,8 +10,4 @@ $font-color: #f5f5f5;
   background-color: $background-color;
   color: $font-color;
   text-align: center;
-}
-
-.footer_menu {
-  
 }
