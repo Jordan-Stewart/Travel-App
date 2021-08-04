@@ -38,9 +38,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	/* background gradient effect*/
-	background: rgb(252,255,186);
-	background: linear-gradient(360deg, rgba(252,255,186,1) 5%, rgba(243,247,144,1) 24%, rgba(187,241,252,1) 51%, rgba(145,236,255,1) 85%);
-  /* background-image: url("./media/background.jpg"); */
+	//background: rgb(252,255,186);
+	//background: linear-gradient(360deg, rgba(252,255,186,1) 5%, rgba(243,247,144,1) 24%, rgba(187,241,252,1) 51%, rgba(145,236,255,1) 85%);
+        background-image: url("../media/background.jpg");
 }
 
 ol, ul {
