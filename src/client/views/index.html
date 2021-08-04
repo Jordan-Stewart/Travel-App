@@ -8,8 +8,6 @@
     </head>
     <body>
         <div class="home-container">
-            <!-- Header -->
-            <header>
                 <!-- Navigation -->
                 <nav>
                          <ul class="navigation">
@@ -20,11 +18,10 @@
                           <li><a href="#">Contact</a></li>
                          </ul>
                 </nav>
-            </header>
             <!-- main -->
             <main>
                 <h1>Jordan Stewart's Travel App</h1>
-                <p>Welcome to my final capstone project for my front-end web developer course. To test the functionality, simply enter in a desired travel destination and departure date and then click 'submit'</p>
+                <h3>Welcome to my final capstone project for my front-end web developer course. To test the functionality, simply enter in a desired travel destination and departure date and then click 'submit'</h3>
             </main>
             <!-- Application -->
             <div class = "app">
@@ -33,12 +30,12 @@
                       <!-- INPUT -->
                       <!-- enter desired destination field -->
                       <div class ="destination">
-                        <label for="zip">Where do you intend to travel</label>
+                        <label for="zip"><h2>Where would you like to travel?</h2></label>
                         <input type="text" id="destination" placeholder="enter city here">
                       </div>
                       <!-- entire desired departure date -->
                       <div class ="departure">
-                        <label for="departure">When do you intend to travel</label>
+                        <label for="departure"><h2>When do you want to depart?</h2></label>
                         <!--<textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>-->
                         <input type="date" id="date" placeholder="enter date dd/mm/yyyy">
                       </div>
@@ -50,18 +47,18 @@
                  <div class = "results">
                         <!-- OUTPUT -->
                       <div class ="holder entry">
-                        <div class = "title">Your trip details</div>
+                        <div class = "title"><h2>Your trip details</h2></div>
                         <div id = "entryHolder">
                             <div id = "date"></div>
                             <div id = "weather"></div>
                             <!-- test for getting weather icon to display -- via support provided from mentor -- https://knowledge.udacity.com/questions/649596 -->
-                            <div id = "image"><img id="weather_icon" src="fallbackIconURL" alt="weaher icon"/></div>
+                            <div id = "icon"></div>
+                            <div id = "image"></div>
                         </div>
                       </div>
                  </div>
                 </div>
               </div>
-
             <!-- FOOTER -->
             <footer class="page__footer">
                 <p>Created by Jordan Stewart</p>
@@ -77,6 +74,6 @@
               //   window.addEventListener('load', () => {
               //       navigator.serviceWorker.register('/service-worker.js');
                //  });
-             //} 
+             //}
             </script>
 </html>
