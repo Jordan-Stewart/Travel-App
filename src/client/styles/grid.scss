@@ -1,1 +1,37 @@
+.home-container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1.5fr 1.0fr 1.5fr 0.6fr; /*repeat(4, 1fr)*/;
+  grid-template-rows: 0.2fr 1fr 1.2fr 1.2fr;
+  grid-template-areas:
+    "nav nav nav nav"
+    "main main main main"
+    "app app app app"
+    "footer footer footer footer";
+}
 
+/* Nested grid for main application */
+#app-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  overflow: auto;
+}
+
+/* Grid area declarations */
+
+main {
+  grid-area: main;
+}
+
+nav {
+  grid-area: nav;
+}
+
+.app {
+  grid-area: app;
+}
+
+footer {
+  grid-area: footer;
+}
