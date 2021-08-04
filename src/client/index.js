@@ -10,6 +10,7 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 import './styles/responsive.scss'
+import './styles/grid.scss'
 
 
 // Event listener to add function to existing HTML DOM element
@@ -17,4 +18,4 @@ import './styles/responsive.scss'
 document.getElementById('generate').addEventListener("click", generateTrip);
 
 //alert("I EXIST")
-//onsole.log("CHANGE!!");
+//console.log("CHANGE!!");
