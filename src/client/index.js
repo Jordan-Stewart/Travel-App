@@ -1,4 +1,3 @@
-import { countdown } from "./js/countdown";
 import { retrieveDestination } from "./js/retrieveDestination";
 import { retrieveImage } from "./js/retrieveImage";
 import { retrieveWeather } from "./js/retrieveWeather";
