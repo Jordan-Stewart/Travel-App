@@ -26,41 +26,51 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	 font-family: calibri;
+	font-family: calibri;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
-	/* background gradient effect */
+	/* background gradient effect*/
 	background: rgb(252,255,186);
 	background: linear-gradient(360deg, rgba(252,255,186,1) 5%, rgba(243,247,144,1) 24%, rgba(187,241,252,1) 51%, rgba(145,236,255,1) 85%);
+  /* background-image: url("./media/background.jpg"); */
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
 ul {
     list-style-type: none;
 }
 
 h1 {
  font-size: 3rem;
- align: center;
+ text-align: center;
+ padding-top: 1rem;
+
 }
 
 h2 {
@@ -69,7 +79,8 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
-  align: center;
+  text-align: center;
+  padding-bottom: 1rem;
 }
 
 p {
