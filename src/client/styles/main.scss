@@ -24,7 +24,7 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	//font: inherit;
 	vertical-align: baseline;
 	font-family: calibri;
 }
@@ -40,7 +40,11 @@ body {
 	/* background gradient effect*/
 	//background: rgb(252,255,186);
 	//background: linear-gradient(360deg, rgba(252,255,186,1) 5%, rgba(243,247,144,1) 24%, rgba(187,241,252,1) 51%, rgba(145,236,255,1) 85%);
-        background-image: url("../media/background.jpg");
+  background-image: url("../media/background.jpg");
+  //sourced from https://stackoverflow.com/questions/9262861/css-background-image-to-fit-width-height-should-auto-scale-in-proportion
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 ol, ul {
@@ -75,6 +79,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  color: white;
 }
 
 h3 {
@@ -85,4 +90,8 @@ h3 {
 
 p {
   font-size: 1rem;
+}
+
+a {
+  color: white;
 }
