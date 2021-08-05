@@ -142,18 +142,15 @@ const userView = async()=>{
               const destination = document.getElementById('destination').value;
               const departure = document.getElementById('date').value;
 
-              // testing displaying geo API
-              const geoAPI = await retrieveDestination(destination);
-                 console.log(userData.lat);
-                 console.log(userData.long);
-                 console.log(userData.ctry);
+              document.querySelector('#destination').innerHTML, document.querySelector('#countdown').innerHTML = "In " + projectData.countdown + " days you'll be heading off to " + projectData.location;
+              document.querySelector('#temp').innerHTML = "The temperature is currently: " + projectData.temp;
 
-              userData.lat = geoAPI.lat;
-              userData.long = geoAPI.long;
-              userData.ctry = geoAPI.ctry;
 
-              //call countdown function for days remaining
-              //countdown (date);
+              //document.querySelector('#icon').innerHTML =
+              //document.querySelector)('#image').innerHTML =  
+
+
+
             }
           //catch any potential errors that arise and output results in console
           catch(err){
