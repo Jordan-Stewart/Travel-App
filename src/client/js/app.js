@@ -21,6 +21,7 @@ document.getElementById('generate').addEventListener('click', generateTrip);
 
 //fix generateTrip function as per mentor advice -- https://knowledge.udacity.com/questions/649604
 function generateTrip(e){
+    e.preventDefault();
     //retrieve elements entered by user
     const date = document.getElementById('date').value;
     const destination = document.getElementById('destination').value;
