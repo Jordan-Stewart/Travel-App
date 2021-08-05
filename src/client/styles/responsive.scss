@@ -1,1 +1,47 @@
 
+@media only screen and (max-width: 700px) {
+  .home-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
+    grid-template-areas:
+      "nav"
+      "main"
+      "app1"
+      "app2"
+      "footer";
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .tile {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Grid area declarations */
+
+main {
+  grid-area: main;
+}
+
+nav {
+  grid-area: nav;
+}
+
+.input {
+  grid-area: app1;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.results {
+  grid-area: app2;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+footer {
+  grid-area: footer;
+}
