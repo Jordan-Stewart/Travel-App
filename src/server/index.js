@@ -1,3 +1,6 @@
+// Setup empty JS object to act as endpoint for all routes
+projectData = {};
+
 const path = require('path')
 const express = require('express')
 const cors = require('cors')
@@ -19,29 +22,42 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// DECLARING THE PORT
+const port = 8081;
+const server = app.listen(port, () => {
+    //log text in console for evidence that servers are working
+    console.log ("server is running");
+    console.log (`running on localhost: ${port}`);
+});
+
 app.get('/clientdataUrl', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile('dist/index.html')
 })
 
-//assistance provided for this function from mentor - https://knowledge.udacity.com/questions/641239
-//app.post("/clientdataUrl", async function (req, res) {
-//    console.log('req====+>', req.body)
-//    const result = await fetch("https://api.meaningcloud.com/sentiment-2.1?key=" + process.env.API_KEY + "&url=" + req.body.formText + "&lang=en")
-//    try {
-//        console.log(result)
-//        const response = await result.json();
-//        res.send(response)
-//        console.log(response)
-//    } catch (error) {
-//      console.log("error", error);
-//    }
-//})
+//copied accross from project 3 with some changes
+app.get('/all', getData);
 
+function getData (request, response){
+    response.send(projectData);
+    console.log(projectData);
+};
+app.post('/add', postData);
 
-// DECLARING THE PORT
-const port = 8081;
-const server = app.listen(port, () => {
-    console.log(`running on localhost: ${port}`);
-});
-module.exports = app
+//post all
+function postData (request, response) {
+
+    let data = request.body;
+
+    console.log('POST Update to server ', data);
+
+    projectData['temp'] = data.temp;
+    projectData['date'] = data.date;
+    projectData['destination'] = data.destination;
+    projectData['countdown'] = data.countdown;
+    projectData['image'] = data.image;
+    projectData['icon'] = data.icon;
+
+    //send project data
+    response.send(projectData);
+};
