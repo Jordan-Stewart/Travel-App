@@ -1,11 +1,18 @@
 //sourced some-what from: https://codepen.io/ajax27/pen/mZLeQm
 
 $font-style: Calibri;
-$color-primary: #fcffba;
-$color-secondary: #f085ad;
-$color-tertiary: #b83b5e;
+$color-primary: #85402a;
 $color-text-dark: #333;
 $color-text-light: #eee;
+// Color
+$brown: #2b2520;
+$green: #39dbc2;
+$pink: #f41fbf;
+$yellow: #ffed28;
+$purple: #b028ff;
+$blue: #49A7FF;
+$red: #ff3838;
+$orange: #db7953;
 
 * {
   margin: 0;
@@ -28,7 +35,17 @@ $color-text-light: #eee;
 
 nav {
   background-color: $color-primary;
+  opacity: 0.85;
   @include clearfix;
+}
+
+.navigation .active {
+    background: $orange;
+}
+
+.navigation .nav_item:hover {
+    background: $orange;
+    transition: ease 0.3s all;
 }
 
 .navigation {
@@ -38,7 +55,6 @@ nav {
   li {
     display: inline-block;
     padding: 20px;
-    margin-left: 6px;
     text-align: center;
 
     &:first-child {
@@ -52,3 +68,61 @@ nav {
     }
   }
 }
+
+/* all of the following is referenced from an article here: https://medium.com/front-end-weekly/9-fancy-title-design-in-css-you-need-to-learn-now-75dd24b48ca */
+
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap');
+
+// Size
+$extra-large: 70px;
+$large: 84px;
+
+.container {
+  * {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+  }
+  .double-border-text {
+      $random-text: 'vacation time';
+      position: relative;
+      $stroke-width: $large * 0.2;
+      font-family: 'Pacifico', cursive;
+      text-transform: uppercase;
+      font-size: $extra-large;
+      color: white;
+      -webkit-text-stroke-width: $stroke-width;
+      -webkit-text-stroke-color: lighten(adjust-hue($yellow, -5%), 35%);
+
+      &:after {
+        content: $random-text;
+        position: absolute;
+        //top: 0;
+        //left: 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        -webkit-text-stroke-width: 0;
+        color: $orange;
+      }
+
+      &:before {
+        z-index: -1;
+        content: $random-text;
+        position: absolute;
+        //top: 0;
+        //left: 0;
+        //align-self: center;
+        -webkit-text-stroke-width: $stroke-width + 15px;
+        -webkit-text-stroke-color: $orange;
+      }
+    }
+  }
