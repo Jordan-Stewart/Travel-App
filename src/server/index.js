@@ -53,7 +53,7 @@ function postData (request, response) {
 
     projectData['temp'] = data.temp;
     projectData['date'] = data.date;
-    projectData['destination'] = data.destination;
+    projectData['location'] = data.location;
     projectData['countdown'] = data.countdown;
     projectData['image'] = data.image;
     projectData['icon'] = data.icon;
