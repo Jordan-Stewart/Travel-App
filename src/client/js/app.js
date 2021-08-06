@@ -19,6 +19,9 @@ let date = new Date();
 //when generate button is clicked, run generateTrip function
 document.getElementById('generate').addEventListener('click', generateTrip);
 
+document.getElementById('generate').addEventListener('click', validation);
+
+
 //fix generateTrip function as per mentor advice -- https://knowledge.udacity.com/questions/649604
 function generateTrip(e){
     e.preventDefault();
@@ -65,6 +68,25 @@ function generateTrip(e){
     //call userView function
     .then( () => userView(data.hits[0].imageURL));
 }
+
+
+//validate user input and display appropiate error message
+function validation() {         
+    if (
+    date.value === '' || 
+    date.value == null || 
+    destination.value === '' || 
+    destination.value == null ||) 
+        {
+        const validateInput = 'Please insert a departure date and your desired destination';
+        document.querySelector('#error').innerHTML = validateInput;
+        return false;
+    } else {
+        return true;
+    }
+}
+
+
 
 
 //retrieveDestination function
