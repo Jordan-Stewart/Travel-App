@@ -50,7 +50,7 @@ function generateTrip(e){
             //post data
             .postData('/', {data: data.data, destination: destination, date: date, countdown: countdown}).then(() => {
                 //call userview function
-                userView(data.hits[0].imageURL)
+                userView();
             });
          });
       });
@@ -105,8 +105,9 @@ const retrieveImage = async (pixabay_API, pixabay_ID, destination) => {
         }
 
 //retrieveImage function
-const retrieveWeather = async (destination, weatherbit_API, weatherbit_ID) => {
-      const response = await fetch(weatherbit_API+'city='+destination+'&key='+weatherbit_ID)
+//fixed reference to match call in generateTrip() function
+const retrieveWeather = async (weatherbit_API, lat, lng, weatherbit_ID) => {
+      const response = await fetch(weatherbit_API + '&lat=' + lat + "&lon=" + lng + '&key=' + weatherbit_ID)
       try {
           const data = await response.json(); // Return data as JSON
           return data;
@@ -189,7 +190,7 @@ const userView = async()=>{
               //Check if country image can be found, if so; display
               countryImage.setAttribute("src", projectData.countryArray[0]);    
               if(projectData.countryArray === undefined){
-                countryImage.setAttribute('src', results.countryArray[0]);    
+               document.querySelector('#country_error ').innerHTML= "No valid image could be found";
               } else {
                 countryImage.setAttribute("src", projectData.countryArray[0]);   
               }
