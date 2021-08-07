@@ -1,6 +1,6 @@
 //API key initialisation
 //API key for geonames
-const geonames_API = 'http://api.geonames.org/postalCodeSearchJSON?placename=';
+const geonames_API = 'http://api.geonames.org/searchJSON?q=';
 //as per mentor instructions, can no longer use 'process'
 //const geonames_ID = process.env.USERNAME;
 const geonames_ID = 'jordanstew';
