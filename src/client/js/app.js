@@ -1,18 +1,21 @@
 //API key initialisation
 //API key for geonames
 const geonames_API = 'http://api.geonames.org/postalCodeSearchJSON?placename=';
-const geonames_ID = process.env.USERNAME;
-
+//as per mentor instructions, can no longer use 'process'
+//const geonames_ID = process.env.USERNAME;
+const geonames_ID = 'jordanstew';
 //API key for pixabay
 const pixabay_API = 'https://pixabay.com/api/?key=';
-const pixabay_ID = process.env.API_KEY_PIXABAY;
-
+//as per mentor instructions, can no longer use 'process'
+//const pixabay_ID = process.env.API_KEY_PIXABAY;
+const pixabay_ID = '22586387-a08bdea789818942120f45452';
 //API key for weatherbit
 const weatherbit_API ='https://api.weatherbit.io/v2.0/current?';
 //const todays_forecast = 'https://api.weatherbit.io/v2.0/current?';
 //const future_forecast = 'http://api.weatherbit.io/v2.0/forecast/daily?'
-const weatherbit_id = process.env.API_KEY_WEATHERBIT;
-
+//as per mentor instructions, can no longer use 'process'
+//const weatherbit_id = process.env.API_KEY_WEATHERBIT;
+const weatherbit_ID = '0abe41b4eb674feb972e9e00a57b7dfb';
 //had these in wrong order
 let date = new Date();
 
@@ -48,29 +51,24 @@ function generateTrip(e){
     //}
 
     //call retrieveDestination function
-    retrieveDestination(destination)
+    //updated chaining of function
+    retrieveDestination(destination).then(function(data)) {
       //upon succesful call, call retrieveWeather function
-      .then(function (data)) {
-        retrieveWeather(apiURL, data.geonames[0].lat,  data.geonames[0].lng, apiKey);
-        return data;
-      })
-      //upon succesful calls, call retrieveImage function
-      .then(function(data){
-        retrieveImage (pixabay_API, pixabay_ID, destination);
-        return data;
-      })
-      //post data
-      .then(function (data)) {
-        postData('/', {data: data.data, destination: destination, date: date, countdown: countdown})
-        return data;
-      })
-
-    //call userView function
-    .then( () => userView(data.hits[0].imageURL));
+      retrieveWeather(weatherbit_API, data.geonames[0].lat, data.geonames[0].lng, weatherbit_ID).then(function(data) {
+         //upon succesful calls, call retrieveImage function
+         .retrieveImage (pixabay_API, pixabay_ID, destination).then(function (data)) {
+            //post data
+            .postData('/', {data: data.data, destination: destination, date: date, countdown: countdown}).then(() => {
+                //call userview function
+                userView(data.hits[0].imageURL)
+            });
+         });
+      });
+    });
 }
 
 
-//validate user input and display appropiate error message
+//validate user input and display appropiate error message if input fields are left blank
 function validation() {         
     if (
     date.value === '' || 
@@ -85,9 +83,6 @@ function validation() {
         return true;
     }
 }
-
-
-
 
 //retrieveDestination function
 const retrieveDestination = async (destination) => {
@@ -116,8 +111,8 @@ const retrieveImage = async (pixabay_API, pixabay_ID, destination) => {
         }
 
 //retrieveImage function
-const retrieveWeather = async (destination, weatherbit_API, weatherbit_id) => {
-      const response = await fetch(weatherbit_API+'city='+destination+'&key='+weatherbit_id)
+const retrieveWeather = async (destination, weatherbit_API, weatherbit_ID) => {
+      const response = await fetch(weatherbit_API+'city='+destination+'&key='+weatherbit_ID)
       try {
           const data = await response.json(); // Return data as JSON
           return data;
