@@ -29,20 +29,30 @@ document.getElementById('generate').addEventListener('click', validation);
 function generateTrip(e){
     e.preventDefault();
     //retrieve elements entered by user
-    const date = document.getElementById('date').value;
+    //update to include both departure and arrival
+    let arrivalDate = document.getElementById('arrival').value;
+    let departureDate = document.getElementById('departure').value;
+    
+    //variables for calculating trip duration
+    var dateArrive = arrivalDate;
+    var dateDepart = departureDate;
+    // To calculate the time difference of two dates
+    var difference_date = dateArrive.getTime() - dateDepart.getTime();
+    //caculate the no. of days between two dates
+    const duration = difference_date / (1000 * 3600 * 24);
+    
     const destination = document.getElementById('destination').value;
-    //const countdown = document.getElementById('countdown')
     //calculation for time remaining until trip departure
-    var setDate = document.getElementById('date').value;
+    var setDate = document.getElementById('arrival').value;
     //getting todays date
     var today = new Date();
     //sourced from https://tecadmin.net/get-current-date-time-javascript/
     var todaysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     //the following was sourced from https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
     // To calculate the time difference of two dates
-    var Difference_In_Time = setDate.getTime() - todaysDate.getTime();
+    var difference_time = setDate.getTime() - todaysDate.getTime();
     // To calculate the no. of days between two dates
-    const countdown = Difference_In_Time / (1000 * 3600 * 24);
+    const countdown = difference_time / (1000 * 3600 * 24);
     //determine if forcast will be set for tomorrow or future set date
     //if (date <= 1) {
     //  weatherbit_API = todays_forecast;
@@ -71,8 +81,10 @@ function generateTrip(e){
 //validate user input and display appropiate error message if input fields are left blank
 function validation() {         
     if (
-    date.value === '' || 
-    date.value == null || 
+    arrival.value === '' || 
+    arrival.value == null || 
+    departure.value === '' || 
+    departure.value == null || 
     destination.value === '' || 
     destination.value == null ||) 
         {
