@@ -85,10 +85,11 @@ function validation() {
     arrival.value == null || 
     departure.value === '' || 
     departure.value == null || 
+    arrival.value > departure.value ||
     destination.value === '' || 
     destination.value == null ||) 
         {
-        const validateInput = 'Please insert a departure date and your desired destination';
+        const validateInput = 'Please insert a valid arrival/departure date or your desired destination';
         document.querySelector('#error').innerHTML = validateInput;
         return false;
     } else {
