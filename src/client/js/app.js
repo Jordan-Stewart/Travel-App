@@ -20,7 +20,7 @@ const weatherbit_ID = '0abe41b4eb674feb972e9e00a57b7dfb';
 let date = new Date();
 
 //when generate button is clicked, run generateTrip function
-document.getElementById('generate').addEventListener('click', generateTrip);
+//document.getElementById('generate').addEventListener('click', generateTrip);
 
 document.getElementById('generate').addEventListener('click', validation);
 
@@ -33,26 +33,6 @@ function generateTrip(e){
     let arrivalDate = document.getElementById('arrival').value;
     let departureDate = document.getElementById('departure').value;
     
-    //variables for calculating trip duration
-    var dateArrive = arrivalDate;
-    var dateDepart = departureDate;
-    // To calculate the time difference of two dates
-    var difference_date = dateArrive.getTime() - dateDepart.getTime();
-    //caculate the no. of days between two dates
-    const duration = difference_date / (1000 * 3600 * 24);
-    
-    const destination = document.getElementById('destination').value;
-    //calculation for time remaining until trip departure
-    var setDate = document.getElementById('arrival').value;
-    //getting todays date
-    var today = new Date();
-    //sourced from https://tecadmin.net/get-current-date-time-javascript/
-    var todaysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    //the following was sourced from https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
-    // To calculate the time difference of two dates
-    var difference_time = setDate.getTime() - todaysDate.getTime();
-    // To calculate the no. of days between two dates
-    const countdown = difference_time / (1000 * 3600 * 24);
     //determine if forcast will be set for tomorrow or future set date
     //if (date <= 1) {
     //  weatherbit_API = todays_forecast;
@@ -93,6 +73,7 @@ function validation() {
         document.querySelector('#error').innerHTML = validateInput;
         return false;
     } else {
+        generateTrip();
         return true;
     }
 }
@@ -166,21 +147,53 @@ const postData= async ( url = '', data = {})=>{
 //post data
 const userView = async()=>{
       const entries = await fetch('/all');
-          //try
           try{
               const projectData = await entries.json();
-              //define variables
+              //retrieve icon
+              const icon_code = 'https://www.weatherbit.io/static/img/icons/${projectData.weatherIcon}.png';
+              //const icon_code = 'https://www.weatherbit.io/static/img/icons/' + projectData.data[i].weather.icon + '.png';
+              //const icon = document.getElementById("destination")
+              //const icon = document.getElementById("arrival")
+              //const icon = document.getElementById("departure")
+              const icon = document.getElementById("weather_icon");
+              const countryImage = document.getElementById("country_image");
+              //variables for calculating trip duration
+              var dateArrive = arrivalDate;
+              var dateDepart = departureDate;
+              // To calculate the time difference of two dates
+              var difference_date = dateArrive.getTime() - dateDepart.getTime();
+              //caculate the no. of days between two dates
+              const duration_length = difference_date / (1000 * 3600 * 24);
+
               const destination = document.getElementById('destination').value;
-              const departure = document.getElementById('date').value;
-
-              document.querySelector('#destination').innerHTML, document.querySelector('#countdown').innerHTML = "In " + projectData.countdown + " days you'll be heading off to " + projectData.location;
+              //calculation for time remaining until trip departure
+              var setDate = document.getElementById('arrival').value;
+              //getting todays date
+              var today = new Date();
+              //sourced from https://tecadmin.net/get-current-date-time-javascript/
+              var todaysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              //the following was sourced from https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
+              // To calculate the time difference of two dates
+              var difference_time = setDate.getTime() - todaysDate.getTime();
+              // To calculate the no. of days between two dates
+              const countdown = difference_time / (1000 * 3600 * 24);
+              //retrieve html i.d's
+              document.querySelector('#destination').innerHTML, document.querySelector('#countdown').innerHTML = "In " + countdown + " days you'll be heading off to " + projectData.location;
+              document.querySelector('#duration').innerHTML = "The length of your trip is " + duration_length + " days";
               document.querySelector('#temp').innerHTML = "The temperature is currently: " + projectData.temp;
+              document.querySelector('#high_temperature').innerHTML= "The current forecasted max temperature is " + projectData.maxTemp + " degrees";
+              document.querySelector('#low_temperature').innerHTML= "The current forecasted minimum temperature is " + projectData.minTemp + " degrees";
+              document.querySelector('#weather_description').innerHTML= projectData.weatherDesc;
 
-
-              //document.querySelector('#icon').innerHTML =
-              //document.querySelector)('#image').innerHTML =  
-
-
+              //Display images/icons
+              //Check if country image can be found, if so; display
+              countryImage.setAttribute("src", projectData.countryArray[0]);    
+              if(projectData.countryArray === undefined){
+                countryImage.setAttribute('src', results.countryArray[0]);    
+              } else {
+                countryImage.setAttribute("src", projectData.countryArray[0]);   
+              }
+              icon.setAttribute("src", 'https://www.weatherbit.io/static/img/icons/${icon_code}.png');
 
             }
           //catch any potential errors that arise and output results in console
