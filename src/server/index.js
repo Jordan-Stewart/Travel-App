@@ -52,7 +52,9 @@ function postData (request, response) {
     console.log('POST Update to server ', data);
 
     projectData['temp'] = data.temp;
-    projectData['date'] = data.date;
+    projectData['arrival'] = data.arrival;
+    projectData['departure'] = data.departure;
+    projectData['duration'] = data.duration;
     projectData['location'] = data.location;
     projectData['countdown'] = data.countdown;
     projectData['image'] = data.image;
