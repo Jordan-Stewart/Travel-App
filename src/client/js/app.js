@@ -32,7 +32,7 @@ function generateTrip(e){
     //update to include both departure and arrival
     let arrivalDate = document.getElementById('arrival').value;
     let departureDate = document.getElementById('departure').value;
-    
+    let destination = document.getElementById('location').value;
     //determine if forcast will be set for tomorrow or future set date
     //if (date <= 1) {
     //  weatherbit_API = todays_forecast;
@@ -93,9 +93,14 @@ const retrieveDestination = async (destination) => {
 
 //retrieveImage function
 const retrieveImage = async (pixabay_API, pixabay_ID, destination) => {
-      const response = await fetch(pixabay_API + pixabay_ID + '&q=' + place + '&category=places&image_type=photo')
+      const response = await fetch(pixabay_API + pixabay_ID + '&q=' + destination + '&category=places&image_type=photo')
       try {
           const data = await response.json(); // Return data as JSON
+          
+          //testing display of image
+          const testdata = res.hits[1];
+          console.log(testdata);
+          
           return data;
           }
           //catch any potential errors that arise and output results in console
