@@ -42,13 +42,13 @@ function generateTrip(e){
 
     //call retrieveDestination function
     //updated chaining of function
-    retrieveDestination(destination).then(function(data)) {
+    retrieveDestination(destination).then(function(data) {
       //upon succesful call, call retrieveWeather function
       retrieveWeather(weatherbit_API, data.geonames[0].lat, data.geonames[0].lng, weatherbit_ID).then(function(data) {
          //upon succesful calls, call retrieveImage function
-         .retrieveImage (pixabay_API, pixabay_ID, destination).then(function (data)) {
+         retrieveImage (pixabay_API, pixabay_ID, destination).then(function (data) {
             //post data
-            .postData('/', {data: data.data, destination: destination, date: date, countdown: countdown}).then(() => {
+            postData('/', {data: data.data, destination: destination, date: date, countdown: countdown}).then(() => {
                 //call userview function
                 userView();
             });
@@ -67,7 +67,7 @@ function validation() {
     departure.value == null || 
     arrival.value > departure.value ||
     destination.value === '' || 
-    destination.value == null ||) 
+    destination.value == null) 
         {
         const validateInput = 'Please insert a valid arrival/departure date or your desired destination';
         document.querySelector('#error').innerHTML = validateInput;
