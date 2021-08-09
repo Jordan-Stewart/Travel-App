@@ -10,14 +10,77 @@
       "app2"
       "footer";
   }
-}
 
-@media only screen and (max-width: 700px) {
+  form {
+      border-radius: 3px;
+      padding: 40px;
+  }
+
+  input {
+      background-color: $input-color;
+      color: $font-color;
+      padding: 5px 20px;
+      width: 50%;
+      line-height: 16px;
+      margin: 20px 0;
+      font-family: $font-style;
+  }
+
+  .input {
+    padding: 5%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    background-color:#53b5db;
+    color: rgb(34, 36, 33);
+    //border-radius: 25px;
+    //box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+    -webkit-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+    -o-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+    border-radius:25px;
+  }
+
+  .results {
+    padding: 5%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    background-color:#53b5db;
+    color: rgb(34, 36, 33);
+    box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+      -moz-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+      -webkit-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+      -o-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
+    border-radius:25px;
+  }
+
+  /*css for button and hover effect */
+  #generate {
+    background-color: #db7953;
+    color: white;
+    //border-radius: 2px solid #85402a;
+    border: 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    width: 100%;
+    height: 15%;
+    font-family: $font-style;
+    font-size: 1.75rem;
+    margin-top: 5%;
+  }
+
   .tile {
     grid-template-columns: 1fr;
   }
 }
-
 
 /* Grid area declarations */
 
@@ -31,14 +94,10 @@ nav {
 
 .input {
   grid-area: app1;
-  padding-left: 10%;
-  padding-right: 10%;
 }
 
 .results {
   grid-area: app2;
-  padding-left: 10%;
-  padding-right: 10%;
 }
 
 
