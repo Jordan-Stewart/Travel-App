@@ -26,16 +26,14 @@ document.getElementById('generate').addEventListener('click', generateTrip);
 
 var regEx = /^[A-Za-z]+$/;
 //fix generateTrip function as per mentor advice -- https://knowledge.udacity.com/questions/649604
-function generateTrip(e){
+function generateTrip(e) {
       if (
         destination.value === '' ||
         destination.value == null )
         {
         const validateInput = 'Please enter your desired destination';
         document.querySelector('#error').innerHTML = validateInput;
-
         alert(validateInput);
-
       } else if (
           //validation for empty inputs
         arrival.value === '' ||
@@ -46,43 +44,24 @@ function generateTrip(e){
           {
           const validateInput = 'Please insert a valid arrival/departure date';
           document.querySelector('#error').innerHTML = validateInput;
-
           alert(validateInput);
-
-      } //else if (
-        //validation for letters only in country inputs
-        //destination.value.match(/abc|def/))
-        //{
-        //const validateInput = 'You can only enter letters for country input';
-        //document.querySelector('#error').innerHTML = validateInput;
-
-        //alert(validateInput);
-
-       else {
+      } else {
           console.log('no validation errors');
           //clear error message if one is currently displayed
           document.querySelector('#error').innerHTML = '';
           //retrieve elements entered by user
           //update to include both departure and arrival
-          let arrivalDate = document.getElementById('arrival').value;
-          let departureDate = document.getElementById('departure').value;
-          let destination = document.getElementById('location').value;
-          //determine if forcast will be set for tomorrow or future set date
-          //if (date <= 1) {
-          //  weatherbit_API = todays_forecast;
-          //} else {
-          //  weatherbit_API = future_forecast;
-          //}
-
+          const arrivalDate = document.getElementById('arrival').value;
+          const departureDate = document.getElementById('departure').value;
+          const destination = document.getElementById('destination').value;
           //call retrieveDestination function
           //updated chaining of function
-          retrieveDestination(destination).then(function(data) {
+          retrieveDestination(geonames_API, geonames_ID, destination).then(function(data) {
             //upon succesful call, call retrieveWeather function
-            retrieveWeather(weatherbit_API, data.geonames[0].lat, data.geonames[0].lng, weatherbit_ID).then(function(data) {
+            retrieveWeather(weatherbit_API, weatherbit_ID, destination).then(function(data) {
                //upon succesful calls, call retrieveImage function
                retrieveImage (pixabay_API, pixabay_ID, destination).then(function (data) {
-
-                 // Now pixabay data is available
+                 //data collected for user
                   let userData = {
                       destinationLattitude: data.geonames[0].lat,
                       destinationLongitude: data.geonames[0].lng,
@@ -92,9 +71,7 @@ function generateTrip(e){
                       weatherDescription: data.data[0].description,
                       destinationImage: data.hits[0].webformatURL,
                   };
-
                   console.log(userData);
-
                   //post data
                   postData('/add', userData).then(() => {
                       //call userview function
@@ -104,15 +81,14 @@ function generateTrip(e){
             });
           });
       }
-
 }
 
 //retrieveDestination function
-const retrieveDestination = async (destination) => {
+const retrieveDestination = async (geonames_API, geonames_ID, destination) => {
       const response = await fetch(geonames_API + destination + "&maxRows=10&username=" + geonames_ID)
       try {
-          const data = await response.json(); // Return data as JSON
-          return data;
+          const userData = await response.json(); // Return data as JSON
+          return userData;
         }
         //catch any potential errors that arise and output results in console
         catch(error) {
@@ -124,13 +100,13 @@ const retrieveDestination = async (destination) => {
 const retrieveImage = async (pixabay_API, pixabay_ID, destination) => {
       const response = await fetch(pixabay_API + pixabay_ID + '&q=' + destination + '&category=places&image_type=photo')
       try {
-          const data = await response.json(); // Return data as JSON
+          const userData = await response.json(); // Return data as JSON
 
           //testing display of image
           //const testdata = res.hits[1];
           //console.log(testdata);
 
-          return data;
+          return userData;
           }
           //catch any potential errors that arise and output results in console
           catch(error) {
@@ -140,11 +116,11 @@ const retrieveImage = async (pixabay_API, pixabay_ID, destination) => {
 
 //retrieveImage function
 //fixed reference to match call in generateTrip() function
-const retrieveWeather = async (weatherbit_API, lat, lng, weatherbit_ID) => {
-      const response = await fetch(weatherbit_API + '&lat=' + lat + "&lon=" + lng + '&key=' + weatherbit_ID)
+const retrieveWeather = async (weatherbit_API, weatherbit_ID, destination) => {
+      const response = await fetch(weatherbit_API + 'country=' + destination + '&key=' + weatherbit_ID)
       try {
-          const data = await response.json(); // Return data as JSON
-          return data;
+          const userData = await response.json(); // Return data as JSON
+          return userData;
           }
           //catch any potential errors that arise and output results in console
           catch(error) {
@@ -153,9 +129,9 @@ const retrieveWeather = async (weatherbit_API, lat, lng, weatherbit_ID) => {
         }
 
 //Displaying final outcome of destination data
-const postData= async ( url = '', data = {})=>{
+const postData= async ( url = '', userData = {})=>{
       //all of the following has been copied across from my third project
-      const response = await fetch('http://localhost:8081', {
+      const response = await fetch(url, {
       //post data
       method: 'POST',
       //set credentials
@@ -165,7 +141,7 @@ const postData= async ( url = '', data = {})=>{
         'Content-Type': 'application/json',
       },
       // Body data type must match "Content-Type" header
-      body: JSON.stringify(data),
+      body: JSON.stringify(userData),
     });
       //console.log(response);
       try {
@@ -183,8 +159,8 @@ const postData= async ( url = '', data = {})=>{
 const userView = async()=>{
       const entries = await fetch('/all');
           try{
-              const projectData = await entries.json();
-              console.log(projectData);
+              const userData = await entries.json();
+              console.log(userData);
               //retrieve icon
               //const icon = document.getElementById("destination")
               //const icon = document.getElementById("arrival")
@@ -213,23 +189,23 @@ const userView = async()=>{
               const countdown = difference_time / (1000 * 3600 * 24);
 
               //retrieve html i.d's
-              document.querySelector('#destination').innerHTML, document.querySelector('#countdown').innerHTML = "In " + countdown + " days you'll be heading off to " + projectData.location;
+              document.querySelector('#destination').innerHTML, document.querySelector('#countdown').innerHTML = "In " + countdown + " days you'll be heading off to " + userData.location;
               document.querySelector('#duration').innerHTML = "The length of your trip is " + duration_length + " days";
-              document.querySelector('#high_temperature').innerHTML= "The current forecasted max temperature is " + projectData.destinationHigh_temp + " degrees";
-              document.querySelector('#low_temperature').innerHTML= "The current forecasted minimum temperature is " + projectData.destinationLow_temp + " degrees";
-              document.querySelector('#weather_description').innerHTML= projectData.weatherDescription;
-              document.querySelector('#image').src = projectData.destinationImage;
+              document.querySelector('#high_temperature').innerHTML= "The current forecasted max temperature is " + userData.destinationHigh_temp + " degrees";
+              document.querySelector('#low_temperature').innerHTML= "The current forecasted minimum temperature is " + userData.destinationLow_temp + " degrees";
+              document.querySelector('#weather_description').innerHTML= userData.weatherDescription;
+              document.querySelector('#image').src = userData.destinationImage;
               //Display images/icons
               //Check if country image can be found, if so; display
 
-              ///countryImage.setAttribute("src", projectData.countryArray[0]);
-              //if(projectData.countryArray === undefined){
+              ///countryImage.setAttribute("src", userData.countryArray[0]);
+              //if(userData.countryArray === undefined){
               // document.querySelector('#country_error ').innerHTML= "No valid image could be found";
               //} else {
-              //  countryImage.setAttribute("src", projectData.countryArray[0]);
+              //  countryImage.setAttribute("src", userData.countryArray[0]);
               //}
               //display icon
-              icon.setAttribute("src", `https://www.weatherbit.io/static/img/icons/${projectData.weatherIcon}.png`);
+              icon.setAttribute("src", `https://www.weatherbit.io/static/img/icons/${userData.weatherIcon}.png`);
 
             }
           //catch any potential errors that arise and output results in console
