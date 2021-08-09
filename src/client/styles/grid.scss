@@ -12,10 +12,10 @@
 
 /* Nested grid for main application */
 .tile {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  display: flex;
   overflow: auto;
+  justify-content: center;
+  align-content: center;
 }
 
 /* Grid area declarations */
@@ -30,10 +30,7 @@ nav {
 
 .app {
   grid-area: app;
-  padding-left: 10%;
-  padding-right: 10%;
 }
-
 
 footer {
   grid-area: footer;
