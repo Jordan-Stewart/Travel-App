@@ -156,8 +156,6 @@ const userView = async()=>{
           try{
               const projectData = await entries.json();
               //retrieve icon
-              const icon_code = 'https://www.weatherbit.io/static/img/icons/${projectData.weatherIcon}.png';
-              //const icon_code = 'https://www.weatherbit.io/static/img/icons/' + projectData.data[i].weather.icon + '.png';
               //const icon = document.getElementById("destination")
               //const icon = document.getElementById("arrival")
               //const icon = document.getElementById("departure")
@@ -199,7 +197,8 @@ const userView = async()=>{
               } else {
                 countryImage.setAttribute("src", projectData.countryArray[0]);   
               }
-              icon.setAttribute("src", 'https://www.weatherbit.io/static/img/icons/${icon_code}.png');
+              //display icon
+              icon.setAttribute("src", `https://www.weatherbit.io/static/img/icons/${projectData.weatherIcon}.png`);
 
             }
           //catch any potential errors that arise and output results in console
