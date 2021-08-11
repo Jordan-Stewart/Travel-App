@@ -76,3 +76,22 @@ input {
 #error {
   color: red;
 }
+
+#location, #duration, #countdown, #high_temperature, #weather_description {
+  color: white;
+  font-size: 1.0 rem
+  paddint-top 2.5%;
+}
+
+#weather_icon img{
+   width: 15%;
+   height: 15%;
+}
+
+#country_image img{
+  width: 100%;
+}
+
+#country_image {
+  width: 100%;
+}
