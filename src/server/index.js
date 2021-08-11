@@ -30,36 +30,33 @@ const server = app.listen(port, () => {
     console.log (`running on localhost: ${port}`);
 });
 
-app.get('/clientdataUrl', function (req, res) {
+//generate dist file location
+app.get('/', function (req, res) {
     // res.sendFile('dist/index.html')
     res.sendFile('dist/index.html')
-})
+});
 
-//copied accross from project 3 with some changes
-app.get('/all', getData);
-
-function getData (request, response){
-    response.send(projectData);
+app.get('/all', (req, res) => {
+    res.send(projectData);
     console.log(projectData);
-};
-app.post('/add', postData);
+});
 
-//post all
-function postData (request, response) {
+app.post('/add', (req, res) => {
+  travelData = {
+    destinationLattitude: req.body.destinationLattitude,
+    destinationLongitude: req.body.destinationLongitude,
+    destinationCountry: req.body.destinationCountry,
+    destinationTemp: req.body.destinationTemp,
+    weatherDescription: req.body.weatherDescription,
+    weatherIcon: req.body.weatherIcon,
+    destinationImage: req.body.destinationImage,
+  };
 
-    let data = request.body;
+  projectData = travelData;
+  res.send(projectData);
 
-    console.log('POST Update to server ', data);
+  //testing
+  console.log(projectData);
+});
 
-    projectData['temp'] = data.temp;
-    projectData['arrival'] = data.arrival;
-    projectData['departure'] = data.departure;
-    projectData['duration'] = data.duration;
-    projectData['location'] = data.location;
-    projectData['countdown'] = data.countdown;
-    projectData['image'] = data.image;
-    projectData['icon'] = data.icon;
-
-    //send project data
-    response.send(projectData);
-};
+module.exports = app;
