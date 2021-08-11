@@ -12,11 +12,13 @@
 
 /* Nested grid for main application */
 .tile {
-  display: flex;
-  overflow: auto;
-  justify-content: center;
-  align-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5%;
+  grid-auto-rows: minmax(20%, auto);
 }
+
+
 
 /* Grid area declarations */
 
