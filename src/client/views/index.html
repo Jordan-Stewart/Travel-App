@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -33,7 +33,7 @@
                       <!-- enter desired destination field -->
                       <div class ="destination">
                         <label for="zip"><h2>Which country would you like to travel to?</h2></label>
-                        <input type="text" id="destination" placeholder="enter country here">
+                        <input type="text" id="destination" placeholder="enter destination location here">
                       </div>
                       <!-- entire desired departure date -->
                       <div class ="departure">
@@ -60,20 +60,23 @@
                         <div id = "entryHolder">
                             <div id = "location"></div>
                             <!--pixabay image-->
-                            <img id="country_image" src="../media/placeholder_country.jpg" alt="country image"/>
+                            <img id="country_image"/>
                             <div id = "country_error"></div>
                             <div id = "duration"></div>
                             <div id = "countdown"></div>
                             <!-- variables for weather data -->
                             <div id = "high_temperature"></div>
-                            <div id = "low_temperature"></div>
+                            <!--<div id = "low_temperature"></div>-->
                             <div id = "weather_description"></div>
                             <!-- test for getting weather icon to display -- via support provided from mentor -- https://knowledge.udacity.com/questions/649596 -->
-                            <img id="weather_icon" src="../media/weather_placeholder.png" alt="weather icon"/>
+                            <img id="weather_icon"/>
                         </div>
                       </div>
                 </div>
               </div>
+            </div>
+            <div id="empty_space">
+              
             </div>
             <!-- FOOTER -->
             <footer class="page__footer">
@@ -86,11 +89,11 @@
     </body>
             <script>
              // Check that service workers are supported
-             //if ('serviceWorker' in navigator) {
-              //    Use the window load event to keep the page load performant
-              //   window.addEventListener('load', () => {
-              //       navigator.serviceWorker.register('/service-worker.js');
-               //  });
-             //}
+             if ('serviceWorker' in navigator) {
+              // Use the window load event to keep the page load performant
+               window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+               });
+             }
             </script>
 </html>
