@@ -1,106 +1,73 @@
-
+$font-style: Calibri;
+$color-primary: #85402a;
+$color-text-dark: #333;
+$color-text-light: #eee;
+// Color
+$brown: #2b2520;
+$green: #39dbc2;
+$pink: #f41fbf;
+$yellow: #ffed28;
+$purple: #b028ff;
+$blue: #49A7FF;
+$red: #ff3838;
+$orange: #db7953;
+//resizing for smaller screen sizes
 @media only screen and (max-width: 700px) {
-  .home-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1fr;
-    grid-template-areas:
-      "nav"
-      "main"
-      "app1"
-      "app2"
-      "footer";
-  }
-
-  form {
-      border-radius: 3px;
-      padding: 40px;
-  }
-
-  input {
-      background-color: $input-color;
-      color: $font-color;
-      padding: 5px 20px;
-      width: 50%;
-      line-height: 16px;
-      margin: 20px 0;
-      font-family: $font-style;
-  }
-
-  .input {
-    padding: 5%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    background-color:#53b5db;
-    color: rgb(34, 36, 33);
-    //border-radius: 25px;
-    //box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
-    -moz-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
-    -webkit-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
-    -o-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
-    border-radius:25px;
-  }
-
-  .results {
-    padding: 5%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    background-color:#53b5db;
-    color: rgb(34, 36, 33);
-    box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
-      -moz-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
-      -webkit-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
-      -o-box-shadow: 10px -10px 5px  rgba(0,0,0,0.6);
-    border-radius:25px;
-  }
-
-  /*css for button and hover effect */
-  #generate {
-    background-color: #db7953;
-    color: white;
-    //border-radius: 2px solid #85402a;
-    border: 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    width: 100%;
-    height: 15%;
-    font-family: $font-style;
-    font-size: 1.75rem;
-    margin-top: 5%;
-  }
-
   .tile {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2.5%;
+    grid-auto-rows: minmax(20%, auto);
   }
-}
 
-/* Grid area declarations */
+  // Size
+  $extra-large: 4rem;
+  $large: 3rem;
 
-main {
-  grid-area: main;
-}
+  .container {
+    * {
+      margin-top: 5%;
+      margin-bottom: 5%;
+      text-align:center;
+      display: flex;
+      justify-content: center;
+    }
+    .double-border-text {
+        $random-text: 'vacation time';
+        position: relative;
+        $stroke-width: $large * 0.2;
+        font-family: 'Pacifico', cursive;
+        text-transform: uppercase;
+        font-size: $extra-large;
+        color: white;
+        -webkit-text-stroke-width: $stroke-width;
+        -webkit-text-stroke-color: lighten(adjust-hue($yellow, -5%), 35%);
 
-nav {
-  grid-area: nav;
-}
+        &:after {
+          content: $random-text;
+          position: absolute;
+          //top: 0;
+          //left: 0;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1;
+          -webkit-text-stroke-width: 0;
+          color: $orange;
+        }
 
-.input {
-  grid-area: app1;
-}
+        &:before {
+          z-index: -1;
+          content: $random-text;
+          position: absolute;
+          //top: 0;
+          //left: 0;
+          //align-self: center;
+          -webkit-text-stroke-width: $stroke-width + 0.5rem;
+          -webkit-text-stroke-color: $orange;
+        }
+      }
+    }
 
-.results {
-  grid-area: app2;
-}
-
-
-footer {
-  grid-area: footer;
 }
