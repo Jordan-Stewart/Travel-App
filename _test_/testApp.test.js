@@ -2,6 +2,6 @@
 import  { validateText } from '../src/client/js/validateText'
 
 test('validate text', () => {
-           expect(validateString("")).toBe(false);
-           expect(validateString("test")).toBe(true);
+           expect(validateText("")).toBe(false);
+           expect(validateText("test")).toBe(true);
     });
